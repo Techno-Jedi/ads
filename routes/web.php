@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controller\AdsController;
+use App\Http\Controllers\BulletinBoardController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,8 +25,12 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/ads', function () {
-    return view('ads');
-});
+// Route::get('/board', function () {
+//     return view('board');
+// });
 
-Route::resource("/ads", AdsController::class);
+Route::resource("board", BulletinBoardController::class)->middleware(['auth', 'verified']);
+
+
+
+
