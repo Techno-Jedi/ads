@@ -25,12 +25,7 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-// Route::get('/board', function () {
-//     return view('board');
-// });
 
 Route::resource("board", BulletinBoardController::class)->middleware(['auth', 'verified']);
-
-
 
 

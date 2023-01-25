@@ -19,10 +19,10 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Лента') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('board.store')" :active="request()->routeIs('board.store')">
                          {{ __('Мои объявления') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('board.create')" :active="request()->routeIs('board.create')">
                          {{ __('Добавить') }}
                     </x-nav-link>
                 </div>

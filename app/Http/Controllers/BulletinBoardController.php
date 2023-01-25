@@ -41,7 +41,8 @@ class BulletinBoardController extends Controller
      */
     public function store(StoreBoardRequest $request)
     {
-        Bulletin_board::create($request->all());     
+        Bulletin_board::create($request->all());
+        // dd($request->post());
         return redirect("/board/create");
     }
 
@@ -51,19 +52,24 @@ class BulletinBoardController extends Controller
      * @param  \App\Models\Bulletin_board  $bulletin_board
      * @return \Illuminate\Http\Response
      */
-    public function show(Bulletin_board $bulletin_board)
+    public function show(Bulletin_board $board)
     {
-        return view("show", ["bulletin_board" => $bulletin_board->find(16)]);
+        //  $z = Bulletin_board::get()->keyBy($bulletin_board);
+        // $z = Bulletin_board::find("id");
+        // return $z;
+
+        // return view("show", ["bulletin_board" =>$z]);
         // $posts = $bulletin_board->all();
         // foreach($posts as $post) {
-        //     dump($post->id);
+        //     dump($post);
             
         // };
        
-        // foreach ( $bulletin_board->all() as $user){
-        //     echo $user->getAttributes()['id'];
+        // foreach ( $board->toArray() as $posts){
+        //     dd($posts);
         // } 
-        // return view("board", ["bulletin_board" =>  $user]);
+        $ads = $board->toArray();
+        return view("show", ["board" => Bulletin_board::find($ads) ]);
 
     }
     /**`
@@ -72,9 +78,17 @@ class BulletinBoardController extends Controller
      * @param  \App\Models\Bulletin_board  $bulletin_board
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bulletin_board $bulletin_board)
+    public function edit(Bulletin_board $board)
     {
-        //
+     
+        // foreach ($board as $post){
+        //     $post;
+        // } 
+    
+        // $board = Bulletin_board::find($bulletin_board);
+        $ads = $board->toArray();
+         return view("edit",["boards" => Bulletin_board::find($ads)]);
+       
     }
 
     /**
@@ -84,9 +98,10 @@ class BulletinBoardController extends Controller
      * @param  \App\Models\Bulletin_board  $bulletin_board
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bulletin_board $bulletin_board)
+    public function update()
     {
-        //
+                 
+         dd("dsjfhsdn");
     }
 
     /**

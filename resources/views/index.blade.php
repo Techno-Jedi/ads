@@ -1,10 +1,26 @@
 <x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Объявления пользователя') }}
+        </h2>
+    </x-slot>
     Продавец: {{$saleman}}
 @foreach($boards as $board)
 <div>
-    <a href="board/{{$board->id}}">
-    {{$board->title}}
-</a>
+<a href="board/{{$board->id}}">
+    <div>Название:{{$board->title}}</div>
+    </a>
+    <div>Описание:{{$board->description}}</div>
+    <div>Цена:{{ $board->price }}</div>
+    <div>Продавец:{{ $board->salesman }}</div>
+    <a href="board/{{$board->id}}/edit">
+    <div><button>Изменить </button></div>
+    <div><button>Удалить</button></div>
+    </a>
+    <div>
+        ========
+    </div>
+
 </div>
 @endforeach
 
