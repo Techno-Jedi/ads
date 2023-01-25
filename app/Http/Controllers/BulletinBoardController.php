@@ -42,7 +42,6 @@ class BulletinBoardController extends Controller
     public function store(StoreBoardRequest $request)
     {
         Bulletin_board::create($request->all());
-        // dd($request->post());
         return redirect("/board/create");
     }
 
@@ -54,20 +53,6 @@ class BulletinBoardController extends Controller
      */
     public function show(Bulletin_board $board)
     {
-        //  $z = Bulletin_board::get()->keyBy($bulletin_board);
-        // $z = Bulletin_board::find("id");
-        // return $z;
-
-        // return view("show", ["bulletin_board" =>$z]);
-        // $posts = $bulletin_board->all();
-        // foreach($posts as $post) {
-        //     dump($post);
-            
-        // };
-       
-        // foreach ( $board->toArray() as $posts){
-        //     dd($posts);
-        // } 
         $ads = $board->toArray();
         return view("show", ["board" => Bulletin_board::find($ads) ]);
 
@@ -80,15 +65,8 @@ class BulletinBoardController extends Controller
      */
     public function edit(Bulletin_board $board)
     {
-     
-        // foreach ($board as $post){
-        //     $post;
-        // } 
-    
-        // $board = Bulletin_board::find($bulletin_board);
         $ads = $board->toArray();
-         return view("edit",["boards" => Bulletin_board::find($ads)]);
-       
+        return view("edit",["boards" => Bulletin_board::find($ads)]);
     }
 
     /**
@@ -98,10 +76,11 @@ class BulletinBoardController extends Controller
      * @param  \App\Models\Bulletin_board  $bulletin_board
      * @return \Illuminate\Http\Response
      */
-    public function update()
+    public function update(Request $request, Bulletin_board $board)
     {
-                 
-         dd("dsjfhsdn");
+        $data = $request->all();
+        $board->update($data);
+        return redirect("/board");
     }
 
     /**
@@ -110,8 +89,9 @@ class BulletinBoardController extends Controller
      * @param  \App\Models\Bulletin_board  $bulletin_board
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bulletin_board $bulletin_board)
+    public function destroy(Bulletin_board $board)
     {
-        //
+        $board->delete();
+        return redirect("/board");
     }
 }

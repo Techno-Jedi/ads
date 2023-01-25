@@ -1,7 +1,7 @@
 <x-app-layout>
 @foreach($boards as $board)
 @endforeach
-<form method = "POST" action="/board/update">
+<form method = "POST" action="/board/{{$board->id}}">
 @csrf
 @method('PUT') 
 <div>Название
