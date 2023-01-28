@@ -3,7 +3,7 @@
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+            
             @endforeach
         </ul>
     </div>
@@ -20,18 +20,49 @@
     <div class="alert alert-danger">{{$error}}</div>
 @enderror
 </div>
+
 <div>Описание
-<textarea name="description"></textarea>
-</div>
-<div>Цена
-<input name="price" id="price"/>
-</div>
-<div>Продавец
-<input name="salesman" id="salesman"/>
-</div>
-<div>Картинка
-<input name="filename" id="filename"/>
+<textarea id="description" 
+type="text" 
+name="description"
+class="@error('title') is-invalid @enderror"></textarea>
+@error('title')
+    <div class="alert alert-danger">{{$error}}</div>
+    @enderror
 </div>
 
-<input type="submit" value="Сохранить"/>
+<div>Цена
+<input id="price"
+ name="price"  
+ type="number" 
+ class="@error('title') is-invalid @enderror"/>
+ @error('title')
+    <div class="alert alert-danger">{{$error}}</div>
+    @enderror
+</div>
+
+<div>Продавец
+<input id="salesman"
+name="salesman"
+type="text" 
+class="@error('title') is-invalid @enderror"/>
+@error('title')
+    <div class="alert alert-danger">{{$error}}</div>
+    @enderror
+</div>
+
+
+<div>Картинка
+<input id="filename" 
+name="filename" 
+type="text" 
+class="@error('title') is-invalid @enderror"/>
+@error('title')
+    <div class="alert alert-danger">{{$error}}</div>
+    @enderror
+</div>
+
+
+<button name = button type="submit">Сохранить </button>
+</form>
 </x-app-layout>

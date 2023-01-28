@@ -76,7 +76,7 @@ class BulletinBoardController extends Controller
      * @param  \App\Models\Bulletin_board  $bulletin_board
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bulletin_board $board)
+    public function update(StoreBoardRequest $request, Bulletin_board $board)
     {
         $data = $request->all();
         $board->update($data);

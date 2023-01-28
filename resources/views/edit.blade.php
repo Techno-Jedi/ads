@@ -1,6 +1,15 @@
 <x-app-layout>
 @foreach($boards as $board)
 @endforeach
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            
+            @endforeach
+        </ul>
+    </div>
+@endif
 <form method = "POST" action="/board/{{$board->id}}">
 @csrf
 @method('PUT') 
@@ -8,22 +17,50 @@
 <input id="title"
     type="text"
     name="title"
-    class="@error('title') is-invalid @enderror" value='{{ $board->title }}'/>
+    class="@error('title') is-invalid @enderror" 
+    value='{{ $board->title }}'/>
     @error('title')
     <div class="alert alert-danger">{{$error}}</div>
 @enderror
 </div>
 <div>Описание
-<textarea name="description">{{ $board->description }}</textarea>
+<textarea id="description" 
+type="text" 
+name="description"
+class="@error('title') is-invalid @enderror">{{ $board->description }}</textarea>
+@error('title')
+    <div class="alert alert-danger">{{$error}}</div>
+    @enderror
 </div>
 <div>Цена
-<input name="price" id="price" value='{{ $board->price }}'/>
+<input id="price" 
+type="number"
+name="price" 
+class="@error('title') is-invalid @enderror" 
+value='{{ $board->price }}'/>
+@error('title')
+    <div class="alert alert-danger">{{$error}}</div>
+@enderror
 </div>
 <div>Продавец
-<input name="salesman" id="salesman" value='{{ $board->salesman }}'/>
+<input id="salesman" 
+type="text" 
+name="salesman"  
+class="@error('title') is-invalid @enderror" 
+value='{{ $board->salesman }}'/>
+@error('title')
+    <div class="alert alert-danger">{{$error}}</div>
+@enderror
 </div>
 <div>Картинка
-<input name="filename" id="filename" value='{{ $board->filename }}'/>
+<input  id="filename" 
+type="text" 
+name="filename"
+class="@error('title') is-invalid @enderror" 
+value='{{ $board->filename }}'/>
+@error('title')
+    <div class="alert alert-danger">{{$error}}</div>
+@enderror
 </div>
 
 <button name = button type="submit">Сохранить </button>
