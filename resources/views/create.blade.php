@@ -26,7 +26,7 @@
 type="text" 
 name="description"
 class="@error('title') is-invalid @enderror"></textarea>
-@error('title')
+@error('description')
     <div class="alert alert-danger">{{$error}}</div>
     @enderror
 </div>
@@ -36,7 +36,7 @@ class="@error('title') is-invalid @enderror"></textarea>
  name="price"  
  type="number" 
  class="@error('title') is-invalid @enderror"/>
- @error('title')
+ @error('price')
     <div class="alert alert-danger">{{$error}}</div>
     @enderror
 </div>
@@ -46,7 +46,7 @@ class="@error('title') is-invalid @enderror"></textarea>
 name="salesman"
 type="text" 
 class="@error('title') is-invalid @enderror"/>
-@error('title')
+@error('salesman')
     <div class="alert alert-danger">{{$error}}</div>
     @enderror
 </div>
@@ -57,12 +57,10 @@ class="@error('title') is-invalid @enderror"/>
 name="filename" 
 type="text" 
 class="@error('title') is-invalid @enderror"/>
-@error('title')
+@error('filename')
     <div class="alert alert-danger">{{$error}}</div>
     @enderror
 </div>
-
-
 <button name = button type="submit">Сохранить </button>
 </form>
 </x-app-layout>

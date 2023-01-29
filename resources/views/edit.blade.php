@@ -27,8 +27,8 @@
 <textarea id="description" 
 type="text" 
 name="description"
-class="@error('title') is-invalid @enderror">{{ $board->description }}</textarea>
-@error('title')
+class="@error('description') is-invalid @enderror">{{ $board->description }}</textarea>
+@error('description')
     <div class="alert alert-danger">{{$error}}</div>
     @enderror
 </div>
@@ -36,9 +36,9 @@ class="@error('title') is-invalid @enderror">{{ $board->description }}</textarea
 <input id="price" 
 type="number"
 name="price" 
-class="@error('title') is-invalid @enderror" 
+class="@error('price') is-invalid @enderror" 
 value='{{ $board->price }}'/>
-@error('title')
+@error('price')
     <div class="alert alert-danger">{{$error}}</div>
 @enderror
 </div>
@@ -48,7 +48,7 @@ type="text"
 name="salesman"  
 class="@error('title') is-invalid @enderror" 
 value='{{ $board->salesman }}'/>
-@error('title')
+@error('salesman')
     <div class="alert alert-danger">{{$error}}</div>
 @enderror
 </div>
@@ -58,7 +58,7 @@ type="text"
 name="filename"
 class="@error('title') is-invalid @enderror" 
 value='{{ $board->filename }}'/>
-@error('title')
+@error('filename')
     <div class="alert alert-danger">{{$error}}</div>
 @enderror
 </div>
