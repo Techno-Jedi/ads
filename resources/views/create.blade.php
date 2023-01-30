@@ -11,6 +11,16 @@
 
 <form action="{{ route('board.store') }}" method="POST">
 @csrf
+
+<div>Продавец:{{$user_id}}
+<input 
+id="salesman"
+name="salesman"
+type="hidden" 
+
+value={{$user_id}} />
+</div>
+
 <div>Название
 <input id="title"
     type="text"
@@ -40,17 +50,6 @@ class="@error('title') is-invalid @enderror"></textarea>
     <div class="alert alert-danger">{{$error}}</div>
     @enderror
 </div>
-
-<div>Продавец
-<input id="salesman"
-name="salesman"
-type="text" 
-class="@error('title') is-invalid @enderror"/>
-@error('salesman')
-    <div class="alert alert-danger">{{$error}}</div>
-    @enderror
-</div>
-
 
 <div>Картинка
 <input id="filename" 

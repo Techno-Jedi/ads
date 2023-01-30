@@ -16,11 +16,10 @@ class BulletinBoardController extends Controller
      */
     public function index()
     {
-      return view("index", [
+        // $ads = Bulletin_board::where('salesman', Auth::id())->get();
+        return view("index", [
         "boards" => Bulletin_board::all(),
-        "saleman" => Auth::id(),
       ]);
-  
     }
 
     /**
@@ -29,8 +28,8 @@ class BulletinBoardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view("create");
+    {  
+        return view("create", ["user_id" => Auth::id()]);
     }
 
     /**

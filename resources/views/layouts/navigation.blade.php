@@ -16,10 +16,10 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Объявления.ru') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('board.index')" :active="request()->routeIs('board.index')">
                         {{ __('Лента') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('board.store')" :active="request()->routeIs('board.store')">
+                    <x-nav-link :href="route('board.index')" :active="request()->routeIs('board.index')">
                          {{ __('Мои объявления') }}
                     </x-nav-link>
                     <x-nav-link :href="route('board.create')" :active="request()->routeIs('board.create')">
