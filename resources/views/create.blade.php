@@ -3,7 +3,6 @@
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
-            
             @endforeach
         </ul>
     </div>
@@ -12,7 +11,7 @@
 <form action="{{ route('board.store') }}" method="POST">
 @csrf
 
-<div>Продавец:{{$user_id}}
+<div>Продавец: {{Auth::user()->name}}
 <input 
 id="salesman"
 name="salesman"

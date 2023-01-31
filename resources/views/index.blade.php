@@ -6,7 +6,7 @@
     </x-slot>
 
 @foreach($boards as $board)
-<div>
+<div class='board'>
 <a href="board/{{$board->id}}">
     <div>Название:{{$board->title}}</div>
     </a>
@@ -14,18 +14,9 @@
     <div>Цена:{{ $board->price }}</div>
     <div>Картинка:{{ $board->filename }}</div>
     <div>Продавец:{{ $board->salesman }}</div>
-    <a href="board/{{$board->id}}/edit">
-    <div><button>Изменить </button></div>
-    </a>
-   <form action="board/{{$board->id}}" method="post">
-    @csrf
-    @method('delete')
-   <div><button type="submit">Удалить</button></div>
-   </form>
     <div>
         ========
     </div>
-
 </div>
 @endforeach
 

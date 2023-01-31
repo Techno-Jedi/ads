@@ -27,3 +27,5 @@ require __DIR__.'/auth.php';
 
 
 Route::resource("board", BulletinBoardController::class)->middleware(['auth', 'verified']);
+
+Route::get('my', [BulletinBoardController::class,"myfunc"])->name("my");

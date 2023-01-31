@@ -51,10 +51,9 @@ class BulletinBoardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Bulletin_board $board)
-    {
+    {   
         $ads = $board->toArray();
-        return view("show", ["board" => Bulletin_board::find($ads) ]);
-
+        return view("show", ["board" =>Bulletin_board::where('salesman', Auth::id())->get()]);
     }
     /**`
      * Show the form for editing the specified resource.
@@ -92,5 +91,11 @@ class BulletinBoardController extends Controller
     {
         $board->delete();
         return redirect("/board");
+    }
+    public function myfunc(Bulletin_board $board)
+    {
+     
+        return view("ribbon", ["boards" =>Bulletin_board::where('salesman', Auth::id())->get()]);
+       
     }
 }
